@@ -8,7 +8,7 @@ import pymongo
 import json
 import datetime
 from paho.mqtt.client import Client
-from b5_mongodb import python_mongodb
+from b5_mongodb import  python_mongodb
 
 class mqtt_client_connect():
 
@@ -62,6 +62,7 @@ class mqtt_client_connect():
 
 
 if __name__=="__main__":
+
     pymo = python_mongodb()
     mqttClient=mqtt_client_connect("10.129.7.199",'1883','iot','iot123!')
     mqttClient.mqttc.subscribe("st/ftg18tl",qos=1)

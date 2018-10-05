@@ -13,7 +13,7 @@ class python_mongodb():
             try:
                 self.myclient = pymongo.MongoClient("mongodb://localhost:27017/")
                 self.mydb = self.myclient["userinfo"]
-                self.mycol = self.mydb["B5"]
+                self.mycol = self.mydb["B5_New"]
                 break
             except:
                 print("mongodb server not found")
@@ -22,8 +22,25 @@ class python_mongodb():
 
     def insert_db(self,str):
 
-        data=str.replace('\r','').replace('\n','').replace("m-mode",'mmode')
+        data=str.replace('\r','').replace('\n','').replace("m-mode",'m mode').replace("run","run info").replace("_",' ').replace("aut","aut info").replace("des","des info")
         data=json.loads(data)
         self.mycol.insert_one(data)
         print("insert one document successful ",self.Num)
         self.Num=self.Num+1
+
+    def select_db(self,find):
+        self.data =self.mycol.find(find)
+        print("select data successful")
+
+
+pymo=python_mongodb()
+find={'devlist.0.varlist.0.readtime':{"$gt":"2018-10-05 16:00:00"}}
+pymo.select_db(find=find)
+
+
+for data in pymo.data:
+    data=data["devlist"][0]["varlist"][0]
+    data.pop("status")
+    data.pop("varid")
+    print(len(data))
+print(pymo.data.count())

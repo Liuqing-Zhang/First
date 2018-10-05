@@ -8,7 +8,7 @@ import time
 import requests
 import json
 
-class auth_corepro():
+class auth_corepro(object):
 
     def __init__(self,ProductKey='6453387282597968558',DeviceName='B5device',DeviceSecret='b442f2b99ecfd290ebf28f42b31266187fd23aedd24393f509fd412097100f4e318f047d53d61af2e461c5e41ad6cee89e65b1063d7eead2bb9914637cbed414'):
 
@@ -36,6 +36,7 @@ class auth_corepro():
         self.get_auth_sign()
         self.get_username_pwd()
 
+    ############ 获取sign 签名 ######################################
     def get_auth_sign(self):
 
         DeviceSecret = bytearray.fromhex(self.DeviceSecret)
@@ -45,6 +46,7 @@ class auth_corepro():
         sign_method = hashlib.sha256
         self.sign = hmac.new(DeviceSecret, sign_content, sign_method).hexdigest()
 
+    ############ post请求 获取Token #################################
     def get_username_pwd(self):
 
         params={  "productKey":self.ProductKey,
@@ -60,9 +62,12 @@ class auth_corepro():
         self.username=data["payload"][0]["iotId"]
         self.password=data["payload"][0]["iotToken"]
 
+
+#  实例
 # B5device=auth_corepro(
 #     ProductKey='6453387282597968558',
 #     DeviceName='B5device',
 #     DeviceSecret='b442f2b99ecfd290ebf28f42b31266187fd23aedd24393f509fd412097100f4e318f047d53d61af2e461c5e41ad6cee89e65b1063d7eead2bb9914637cbed414'
 # )
 # print("B5device 鉴权成功！................")
+# print(B5device.username,B5device.password)
