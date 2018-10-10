@@ -2,43 +2,40 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2018/10/4 15:48
 # @Author  : userzhang
+
 import hashlib
 import hmac
 import time
-import requests
 import json
+import requests
+
 
 class auth_corepro(object):
 
-    def __init__(self,ProductKey='6453387282597968558',DeviceName='B5device',DeviceSecret='b442f2b99ecfd290ebf28f42b31266187fd23aedd24393f509fd412097100f4e318f047d53d61af2e461c5e41ad6cee89e65b1063d7eead2bb9914637cbed414'):
+    def __init__(self,ProductKey='6453387282597968558',DeviceName='B5device',DeviceSecret='b442f2b99ecfd290ebf28f42b31266187fd23aedd24393f509fd412097100f4e318f047d53d61af2e461c5e41ad6cee89e65b1063d7eead2bb9914637cbed414',auth_url='https://service-o8bikfta-1256676747.ap-guangzhou.apigateway.myqcloud.com/release/corepro_deviceauth/mqtt_auth?X-MicroService-Name=beacon-corepro-deviceauth&X-NameSpace-Code=default-code'):
 
-        ############ B5device 三元組 ###################
+        # ---------------- device 三元組 --------------------
         self.ProductKey = ProductKey
         self.DeviceName = DeviceName
         self.DeviceSecret = DeviceSecret
-        ##################################################
 
-
-        ########################鑒權URL#################
-        self.auth_url = 'https://service-o8bikfta-1256676747.ap-guangzhou.apigateway.myqcloud.com/release/corepro_deviceauth/mqtt_auth?X-MicroService-Name=beacon-corepro-deviceauth&X-NameSpace-Code=default-code'
+        # --------------------- 鑒權URL -----------------------
+        self.auth_url = auth_url
         self.msglog_url = 'https://service-o8bikfta-1256676747.ap-guangzhou.apigateway.myqcloud.com/release/corepro/equipment/device/msglog/?X-MicroService-Name=beacon-corepro-equipment-new&X-NameSpace-Code=default-code'
-        ###############################################
 
-
-
-        ########## MQTT 服務器 topic ########################################
-        self.mqttHost = '193.112.225.54'
-        self.mqttPort = 1883
-        self.pub_topic='/' + self.ProductKey + self.DeviceName + '/property/post'
-        self.sub_topic='/' + self.ProductKey + self.DeviceName + '/property/post/reply'
-        ##################################################
+        # ------sign timestamp username password mqtthost mqttport  -----
+        self.sign=None
+        self.timestamp=None
+        self.username = None
+        self.password = None
+        self.mqtthost = None
+        self.mqttport = None
 
         self.get_auth_sign()
         self.get_username_pwd()
 
-    ############ 获取sign 签名 ######################################
+    # ------------------ 获取sign 签名 -----------------------------------
     def get_auth_sign(self):
-
         DeviceSecret = bytearray.fromhex(self.DeviceSecret)
         self.timestamp = str(round((time.time() * 1000)))
         sign_content = ''.join(('deviceName', self.DeviceName, 'productKey', self.ProductKey, 'timestamp', self.timestamp))
@@ -46,28 +43,42 @@ class auth_corepro(object):
         sign_method = hashlib.sha256
         self.sign = hmac.new(DeviceSecret, sign_content, sign_method).hexdigest()
 
-    ############ post请求 获取Token #################################
+    # -------------------- post请求 获取Token -----------------------------
     def get_username_pwd(self):
+        while True:
+            try:
+                params={  "productKey":self.ProductKey,
+                          "deviceName":self.DeviceName,
+                          "sign":self.sign,
+                          "timestamp":self.timestamp,
+                          "signmethod":"HmacSHA256"
+                        }
 
-        params={  "productKey":self.ProductKey,
-                  "deviceName":self.DeviceName,
-                  "sign":self.sign,
-                  "timestamp":self.timestamp,
-                  "signmethod":"HmacSHA256"
-                }
+                r=requests.post(self.auth_url,data=params,timeout=30)
+                data=r.text
+                data=json.loads(data)
+                if not data["errmsg"]=="":
+                    print(self.DeviceName," 鉴权失败！................     error1: device is forbidden")
 
-        r=requests.post(self.auth_url,data=params)
-        data=r.text
-        data=json.loads(data)
-        self.username=data["payload"][0]["iotId"]
-        self.password=data["payload"][0]["iotToken"]
+                elif data["errmsg"]=="":
+                    self.username=data["payload"][0]["iotId"]
+                    self.password=data["payload"][0]["iotToken"]
+                    self.mqtthost=data["payload"][0]["iotHost"]
+                    self.mqttport=data["payload"][0]["iotPort"]
+                    # print(data)
+                    print(self.DeviceName," 鉴权成功！................")
+                    break
+            except:
+                print("requests.post error： Http Connect failed or Timeout please check you network")
+                continue
+
 
 
 #  实例
 # B5device=auth_corepro(
-#     ProductKey='6453387282597968558',
-#     DeviceName='B5device',
-#     DeviceSecret='b442f2b99ecfd290ebf28f42b31266187fd23aedd24393f509fd412097100f4e318f047d53d61af2e461c5e41ad6cee89e65b1063d7eead2bb9914637cbed414'
+#     ProductKey='6453668283668082833',
+#     DeviceName='P10XXK370',
+#     DeviceSecret='ff99aaa845774651edeebcad72a7b6810b8fa0f237bece49001476ab20f09fe4f0b648747b924999a3f5c3ba2ee31880463cff2f376c7df55fff31b917a85acc'
 # )
-# print("B5device 鉴权成功！................")
-# print(B5device.username,B5device.password)
+
+# print(B5device.username,B5device.password,B5device.mqtthost,B5device.mqttport)

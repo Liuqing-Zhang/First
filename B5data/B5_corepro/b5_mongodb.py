@@ -12,8 +12,8 @@ class python_mongodb():
         while True:
             try:
                 self.myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-                self.mydb = self.myclient["userinfo"]
-                self.mycol = self.mydb["B5_New"]
+                self.mydb = self.myclient["B5"]
+                self.mycol = self.mydb["Data"]
                 break
             except:
                 print("mongodb server not found")
@@ -28,19 +28,20 @@ class python_mongodb():
         print("insert one document successful ",self.Num)
         self.Num=self.Num+1
 
+
     def select_db(self,find):
         self.data =self.mycol.find(find)
         print("select data successful")
 
 
-pymo=python_mongodb()
-find={'devlist.0.varlist.0.readtime':{"$gt":"2018-10-05 16:00:00"}}
-pymo.select_db(find=find)
-
-
-for data in pymo.data:
-    data=data["devlist"][0]["varlist"][0]
-    data.pop("status")
-    data.pop("varid")
-    print(len(data))
-print(pymo.data.count())
+# pymo=python_mongodb()
+# find={'devlist.0.varlist.0.readtime':{"$gt":"2018-10-04 00:00:00"}}
+# pymo.select_db(find=find)
+#
+#
+# for data in pymo.data:
+#     data=data["devlist"][0]["varlist"][0]
+#     data.pop("status")
+#     data.pop("varid")
+#     print(data["readtime"])
+# print(pymo.data.count())
