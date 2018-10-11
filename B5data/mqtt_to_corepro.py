@@ -15,7 +15,10 @@ def select_data(year=2018,month=10,day=11,hour=00,minute=00,second=00):
     find = {'devlist.0.varlist.0.readtime': {"$gte": lefttime,"$lte":righttime}}
     pymo.select_db(find=find)
     print("Count: ", pymo.data.count()," time zones",lefttime,"--",righttime)
+    # for i in pymo.data:
+    #     print(i)
     return pymo.data
+
 
 
 if __name__ == "__main__":
@@ -51,10 +54,21 @@ if __name__ == "__main__":
     load["id"]="12345"
     load["msg_ver"]=None
 
-    nmonth=10
-    nday = 11
+    nyear=2018
+    nmonth=2
+    nday = 1
     while True:
-        datas=select_data(year=2018,month=nmonth,day=nday,hour=8,minute=0)
+        try:
+            datas=select_data(year=nyear,month=nmonth,day=nday,hour=8,minute=0)
+        except:
+            if nday==28 or nday==29 or nday==30 or nday==31:
+                nmonth=nmonth+1
+                nday=1
+                if nmonth==13:
+                    nmonth=1
+                    nyear=nyear+1
+                datas = select_data(year=nyear, month=nmonth, day=nday, hour=8, minute=0)
+
         for data in datas:
             data = data["devlist"][0]["varlist"][0]
             # data.pop("status")
@@ -68,7 +82,7 @@ if __name__ == "__main__":
             time.sleep(3)
 
         nday=nday+1
-        if nday>31:
-            nmonth=nmonth+1
-            nday=1
+        # if nday>31:
+        #     nmonth=nmonth+1
+        #     nday=1
 
