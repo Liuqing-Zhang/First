@@ -38,10 +38,12 @@ class auth_corepro(object):
     def get_auth_sign(self):
         DeviceSecret = bytearray.fromhex(self.DeviceSecret)
         self.timestamp = str(round((time.time() * 1000)))
+        # print(self.timestamp)
         sign_content = ''.join(('deviceName', self.DeviceName, 'productKey', self.ProductKey, 'timestamp', self.timestamp))
         sign_content = bytes(sign_content, encoding='utf-8')
         sign_method = hashlib.sha256
         self.sign = hmac.new(DeviceSecret, sign_content, sign_method).hexdigest()
+        # print(self.sign)
 
     # -------------------- post请求 获取Token -----------------------------
     def get_username_pwd(self):
@@ -63,6 +65,7 @@ class auth_corepro(object):
                 elif data["errmsg"]=="":
                     self.username=data["payload"][0]["iotId"]
                     self.password=data["payload"][0]["iotToken"]
+                    print(self.password)
                     self.mqtthost=data["payload"][0]["iotHost"]
                     self.mqttport=data["payload"][0]["iotPort"]
                     # print(data)
@@ -70,6 +73,7 @@ class auth_corepro(object):
                     break
             except:
                 print("requests.post error： Http Connect failed or Timeout please check you network")
+                time.sleep(3)
                 continue
 
 

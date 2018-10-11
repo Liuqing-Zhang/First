@@ -4,16 +4,12 @@
 # @Author  : userzhang
 
 import time
-import pymongo
-import json
-import datetime
 from paho.mqtt.client import Client
-from auth_corepro import auth_corepro
-# from b5_mongodb import  python_mongodb
+
 
 class mqtt_client_connect():
 
-    def __init__(self,broker,port,username,password):
+    def __init__(self,broker="10.129.7.199",port=1883,username="iot",password="iot123!"):
         self.broker=broker
         self.port=port
         self.username=username
@@ -32,7 +28,6 @@ class mqtt_client_connect():
                 break
             except:
                 print("mqtt_client_connect error: mqttc connect failed Please check Broker and Port....")
-                time.sleep(3)
                 continue
     # ======================================================
     def on_connect(self,client, userdata, flags, rc):
@@ -52,38 +47,12 @@ class mqtt_client_connect():
         self.mqttc.on_message = self.on_message
 
     def on_message(self,client, userdata, msg):
-        curtime = datetime.datetime.now()
-        strcurtime = curtime.strftime("%Y-%m-%d %H:%M:%S")
+        strcurtime = time.strftime("%Y-%m-%d %H:%M:%S")
         print(strcurtime + ": " + msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
-    #     self.payload=msg.payload
-    #     self.insert_to_mongo()
-    #
-    #     # print(type(self.payload))
-    # def insert_to_mongo(self):
-    #     if not self.payload==None:
-    #         data=str(self.payload,encoding="GBK")
-    #
-    #         pymo.insert_db(data)
-    #     else:
-    #         print("Waitting......")
-    #     # =====================================================
 
 
-if __name__ == "__main__":
 
-    B5device=auth_corepro(
-        ProductKey='6453668283668082833',
-        DeviceName='P10XXK370',
-        DeviceSecret='ff99aaa845774651edeebcad72a7b6810b8fa0f237bece49001476ab20f09fe4f0b648747b924999a3f5c3ba2ee31880463cff2f376c7df55fff31b917a85acc'
-    )
-    mqttClient=mqtt_client_connect(B5device.mqtthost,B5device.mqttport,B5device.username,B5device.password)
-    mqttClient.mqttc.subscribe("/"+B5device.ProductKey+"/"+B5device.DeviceName+"/property/post/reply",qos=1)
-    while True:
-        mqttClient.mqttc.publish(
-            topic="/" + B5device.ProductKey + "/" + B5device.DeviceName + "/property/post",
-            payload='{"msg_ver":null,"id":"123456","params":[{"name":"userzhang","action":"test"}]}',
-            qos=1)
-        time.sleep(3)
+
 
 
 
