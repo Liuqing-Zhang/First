@@ -19,7 +19,6 @@ class mqtt_client_connect():
         while True:
             try:
                 # self.mqttc=Client(clean_session=False,client_id="12345")
-                # self.mqttc = Client()
                 self.mqttc = Client(client_id=self.client_id)
                 self.mqttc.on_connect=self.on_connect
                 self.mqttc.on_publish=self.on_publish

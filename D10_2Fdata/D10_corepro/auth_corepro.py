@@ -80,8 +80,8 @@ class auth_corepro(object):
                 time.sleep(3)
                 continue
 
-
-
+#
+#
 #  # 实例
 # B5device=auth_corepro(
 #     ProductKey='6453668283668082833',

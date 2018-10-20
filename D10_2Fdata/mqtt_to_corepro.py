@@ -4,8 +4,8 @@
 # @Author  : userzhang
 import time
 import json
-from B5_corepro.auth_corepro import auth_corepro
-from B5_corepro.mqtt_pub_sub import mqtt_client_connect
+from D10_corepro.auth_corepro import auth_corepro
+from D10_corepro.mqtt_pub_sub import mqtt_client_connect
 
 class local_mqtt_client_connect(mqtt_client_connect):
 
@@ -49,5 +49,3 @@ if __name__ == "__main__":
     localmqttClient.mqttc.subscribe(topic="st/ftg18tl", qos=1)
     while True:
         pass
-
-

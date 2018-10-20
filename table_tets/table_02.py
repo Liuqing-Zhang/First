@@ -4,7 +4,7 @@
 # @Author  : userzhang
 from PyQt5 import QtWidgets #PyQt5的模块
 import sys
-import table_tets.MainWindow as table
+import MainWindow as table
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QMessageBox
