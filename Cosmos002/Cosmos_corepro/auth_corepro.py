@@ -38,12 +38,12 @@ class auth_corepro(object):
     def get_auth_sign(self):
         DeviceSecret = bytearray.fromhex(self.DeviceSecret)
         self.timestamp = str(round((time.time() * 1000)))
-        print("timestamp:"+self.timestamp)
+        # print("timestamp:"+self.timestamp)
         sign_content = ''.join(('deviceName', self.DeviceName, 'productKey', self.ProductKey, 'timestamp', self.timestamp))
         sign_content = bytes(sign_content, encoding='utf-8')
         sign_method = hashlib.sha256
         self.sign = hmac.new(DeviceSecret, sign_content, sign_method).hexdigest()
-        print("sign:"+self.sign)
+        # print("sign:"+self.sign)
 
     # -------------------- post请求 获取Token -----------------------------
     def get_username_pwd(self):

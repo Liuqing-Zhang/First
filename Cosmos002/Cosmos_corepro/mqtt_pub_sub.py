@@ -35,24 +35,24 @@ class mqtt_client_connect():
     def on_connect(self,client, userdata, flags, rc):
         #rc为0 返回连接成功
         if rc==0:
-            print("OnConnetc, rc: " + str(rc), 'successful  '+str(client._username))
+            print("OnConnetc, rc: " + str(rc), 'successful  '+str(client._username).split("_")[1][:-1])
         else:
-            print("OnConnetc, rc: " + str(rc), 'unsuccessful  '+str(client._username))
+            print("OnConnetc, rc: " + str(rc), 'unsuccessful  '+str(client._username).split("_")[1][:-1])
 
     def on_disconnect(self,client, userdata, rc):
         if rc != 0:
             print("Unexpected MQTT disconnection. Will auto-reconnect")
 
     def on_publish(self,client, userdata, mid):
-        print("OnPublish, mid: " + str(mid)+" ")
+        print("OnPublish, mid: " + str(mid)+" "+str(client._username).split("_")[1][:-1])
 
     def on_subscribe(self,client, userdata, mid, granted_qos):
-        print("Subscribed: " + str(mid) + "   " + str(granted_qos)+"  订阅成功 "+str(client._username))
+        print("Subscribed: " + str(mid) + "   " + str(granted_qos)+"  订阅成功 "+str(client._username).split("_")[1][:-1])
         self.mqttc.on_message = self.on_message
 
     def on_message(self,client, userdata, msg):
         strcurtime = time.strftime("%Y-%m-%d %H:%M:%S")
-        print(strcurtime + ": " + msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
+        print(strcurtime + ": " + msg.topic + " " + str(msg.qos) + " " + str(msg.payload)+str(client._username).split("_")[1][:-1])
 
 
 

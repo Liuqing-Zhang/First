@@ -1,0 +1,131 @@
+{'stationid_id': 4, 'meaning': 'Message Size', 'rectime': '2018-10-08 11:01:12', 'seq': 1, 'data': 1060.0, 'notes': 'Total message length in bytes'}
+{'stationid_id': 4, 'meaning': 'Time', 'rectime': '2018-10-08 11:01:12', 'seq': 2, 'data': 239500.0, 'notes': 'Time elapsed since the controller was started'}
+{'stationid_id': 4, 'meaning': 'q target', 'rectime': '2018-10-08 11:01:12', 'seq': 3, 'data': 2.51452, 'notes': 'Target joint positions - Base joint'}
+{'stationid_id': 4, 'meaning': 'q target', 'rectime': '2018-10-08 11:01:12', 'seq': 4, 'data': -1.55931, 'notes': 'Target joint positions - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'q target', 'rectime': '2018-10-08 11:01:12', 'seq': 5, 'data': 1.60019, 'notes': 'Target joint positions - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'q target', 'rectime': '2018-10-08 11:01:12', 'seq': 6, 'data': -0.0201915, 'notes': 'Target joint positions - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'q target', 'rectime': '2018-10-08 11:01:12', 'seq': 7, 'data': 1.27379, 'notes': 'Target joint positions - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'q target', 'rectime': '2018-10-08 11:01:12', 'seq': 8, 'data': -1.84479, 'notes': 'Target joint positions - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'qd target', 'rectime': '2018-10-08 11:01:12', 'seq': 9, 'data': 0.0, 'notes': 'Target joint velocities - Base joint'}
+{'stationid_id': 4, 'meaning': 'qd target', 'rectime': '2018-10-08 11:01:12', 'seq': 10, 'data': 0.0, 'notes': 'Target joint velocities - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'qd target', 'rectime': '2018-10-08 11:01:12', 'seq': 11, 'data': 0.0, 'notes': 'Target joint velocities - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'qd target', 'rectime': '2018-10-08 11:01:12', 'seq': 12, 'data': 0.0, 'notes': 'Target joint velocities - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'qd target', 'rectime': '2018-10-08 11:01:12', 'seq': 13, 'data': 0.0, 'notes': 'Target joint velocities - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'qd target', 'rectime': '2018-10-08 11:01:12', 'seq': 14, 'data': 0.0, 'notes': 'Target joint velocities - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'qdd target', 'rectime': '2018-10-08 11:01:12', 'seq': 15, 'data': 0.0, 'notes': 'Target joint accelerations - Base joint'}
+{'stationid_id': 4, 'meaning': 'qdd target', 'rectime': '2018-10-08 11:01:12', 'seq': 16, 'data': 0.0, 'notes': 'Target joint accelerations - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'qdd target', 'rectime': '2018-10-08 11:01:12', 'seq': 17, 'data': 0.0, 'notes': 'Target joint accelerations - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'qdd target', 'rectime': '2018-10-08 11:01:12', 'seq': 18, 'data': 0.0, 'notes': 'Target joint accelerations - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'qdd target', 'rectime': '2018-10-08 11:01:12', 'seq': 19, 'data': 0.0, 'notes': 'Target joint accelerations - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'qdd target', 'rectime': '2018-10-08 11:01:12', 'seq': 20, 'data': 0.0, 'notes': 'Target joint accelerations - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'I target', 'rectime': '2018-10-08 11:01:12', 'seq': 21, 'data': -1.16919e-16, 'notes': 'Target joint currents - Base joint'}
+{'stationid_id': 4, 'meaning': 'I target', 'rectime': '2018-10-08 11:01:12', 'seq': 22, 'data': -3.08829, 'notes': 'Target joint currents - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'I target', 'rectime': '2018-10-08 11:01:12', 'seq': 23, 'data': -3.06786, 'notes': 'Target joint currents - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'I target', 'rectime': '2018-10-08 11:01:12', 'seq': 24, 'data': -0.579267, 'notes': 'Target joint currents - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'I target', 'rectime': '2018-10-08 11:01:12', 'seq': 25, 'data': -0.000517808, 'notes': 'Target joint currents - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'I target', 'rectime': '2018-10-08 11:01:12', 'seq': 26, 'data': -0.150126, 'notes': 'Target joint currents - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'M target', 'rectime': '2018-10-08 11:01:12', 'seq': 27, 'data': -1.34932e-15, 'notes': 'Target joint moments (torques) - Base joint'}
+{'stationid_id': 4, 'meaning': 'M target', 'rectime': '2018-10-08 11:01:12', 'seq': 28, 'data': -35.9561, 'notes': 'Target joint moments (torques) - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'M target', 'rectime': '2018-10-08 11:01:12', 'seq': 29, 'data': -35.335, 'notes': 'Target joint moments (torques) - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'M target', 'rectime': '2018-10-08 11:01:12', 'seq': 30, 'data': -5.06561, 'notes': 'Target joint moments (torques) - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'M target', 'rectime': '2018-10-08 11:01:12', 'seq': 31, 'data': -0.0045422, 'notes': 'Target joint moments (torques) - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'M target', 'rectime': '2018-10-08 11:01:12', 'seq': 32, 'data': -1.30294, 'notes': 'Target joint moments (torques) - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'q actual', 'rectime': '2018-10-08 11:01:12', 'seq': 33, 'data': 2.51448, 'notes': 'Actual joint positions - Base joint'}
+{'stationid_id': 4, 'meaning': 'q actual', 'rectime': '2018-10-08 11:01:12', 'seq': 34, 'data': -1.55936, 'notes': 'Actual joint positions - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'q actual', 'rectime': '2018-10-08 11:01:12', 'seq': 35, 'data': 1.6002, 'notes': 'Actual joint positions - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'q actual', 'rectime': '2018-10-08 11:01:12', 'seq': 36, 'data': -0.0201677, 'notes': 'Actual joint positions - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'q actual', 'rectime': '2018-10-08 11:01:12', 'seq': 37, 'data': 1.27379, 'notes': 'Actual joint positions - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'q actual', 'rectime': '2018-10-08 11:01:12', 'seq': 38, 'data': -1.84474, 'notes': 'Actual joint positions - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'qd actual', 'rectime': '2018-10-08 11:01:12', 'seq': 39, 'data': 0.0, 'notes': 'Actual joint velocities - Base joint'}
+{'stationid_id': 4, 'meaning': 'qd actual', 'rectime': '2018-10-08 11:01:12', 'seq': 40, 'data': 0.0, 'notes': 'Actual joint velocities - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'qd actual', 'rectime': '2018-10-08 11:01:12', 'seq': 41, 'data': 0.0, 'notes': 'Actual joint velocities - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'qd actual', 'rectime': '2018-10-08 11:01:12', 'seq': 42, 'data': 0.0, 'notes': 'Actual joint velocities - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'qd actual', 'rectime': '2018-10-08 11:01:12', 'seq': 43, 'data': 0.0, 'notes': 'Actual joint velocities - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'qd actual', 'rectime': '2018-10-08 11:01:12', 'seq': 44, 'data': 0.0, 'notes': 'Actual joint velocities - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'I actual', 'rectime': '2018-10-08 11:01:12', 'seq': 45, 'data': 0.0448362, 'notes': 'Actual joint currents - Base joint'}
+{'stationid_id': 4, 'meaning': 'I actual', 'rectime': '2018-10-08 11:01:12', 'seq': 46, 'data': -2.9009, 'notes': 'Actual joint currents - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'I actual', 'rectime': '2018-10-08 11:01:12', 'seq': 47, 'data': -2.85831, 'notes': 'Actual joint currents - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'I actual', 'rectime': '2018-10-08 11:01:12', 'seq': 48, 'data': -0.472763, 'notes': 'Actual joint currents - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'I actual', 'rectime': '2018-10-08 11:01:12', 'seq': 49, 'data': -0.036601, 'notes': 'Actual joint currents - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'I actual', 'rectime': '2018-10-08 11:01:12', 'seq': 50, 'data': -0.00915025, 'notes': 'Actual joint currents - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'I control', 'rectime': '2018-10-08 11:01:12', 'seq': 51, 'data': 0.0582871, 'notes': 'Joint control currents - Base joint'}
+{'stationid_id': 4, 'meaning': 'I control', 'rectime': '2018-10-08 11:01:12', 'seq': 52, 'data': -2.9009, 'notes': 'Joint control currents - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'I control', 'rectime': '2018-10-08 11:01:12', 'seq': 53, 'data': -2.87624, 'notes': 'Joint control currents - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'I control', 'rectime': '2018-10-08 11:01:12', 'seq': 54, 'data': -0.474288, 'notes': 'Joint control currents - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'I control', 'rectime': '2018-10-08 11:01:12', 'seq': 55, 'data': -0.0411761, 'notes': 'Joint control currents - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'I control', 'rectime': '2018-10-08 11:01:12', 'seq': 56, 'data': -0.00152504, 'notes': 'Joint control currents - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'Tool vector actual', 'rectime': '2018-10-08 11:01:12', 'seq': 57, 'data': 0.55753, 'notes': 'Actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - x'}
+{'stationid_id': 4, 'meaning': 'Tool vector actual', 'rectime': '2018-10-08 11:01:12', 'seq': 58, 'data': -0.201395, 'notes': 'Actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - y'}
+{'stationid_id': 4, 'meaning': 'Tool vector actual', 'rectime': '2018-10-08 11:01:12', 'seq': 59, 'data': 0.400032, 'notes': 'Actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - z'}
+{'stationid_id': 4, 'meaning': 'Tool vector actual', 'rectime': '2018-10-08 11:01:12', 'seq': 60, 'data': 0.0522869, 'notes': 'Actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - rx'}
+{'stationid_id': 4, 'meaning': 'Tool vector actual', 'rectime': '2018-10-08 11:01:12', 'seq': 61, 'data': 1.60931, 'notes': 'Actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation -ry'}
+{'stationid_id': 4, 'meaning': 'Tool vector actual', 'rectime': '2018-10-08 11:01:12', 'seq': 62, 'data': -0.463351, 'notes': 'Actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - rz'}
+{'stationid_id': 4, 'meaning': 'TCP speed actual', 'rectime': '2018-10-08 11:01:12', 'seq': 63, 'data': 0.0, 'notes': 'Actual speed of the tool given in Cartesian coordinates - x'}
+{'stationid_id': 4, 'meaning': 'TCP speed actual', 'rectime': '2018-10-08 11:01:12', 'seq': 64, 'data': 0.0, 'notes': 'Actual speed of the tool given in Cartesian coordinates - y'}
+{'stationid_id': 4, 'meaning': 'TCP speed actual', 'rectime': '2018-10-08 11:01:12', 'seq': 65, 'data': 0.0, 'notes': 'Actual speed of the tool given in Cartesian coordinates - z'}
+{'stationid_id': 4, 'meaning': 'TCP speed actual', 'rectime': '2018-10-08 11:01:12', 'seq': 66, 'data': 0.0, 'notes': 'Actual speed of the tool given in Cartesian coordinates - rx'}
+{'stationid_id': 4, 'meaning': 'TCP speed actual', 'rectime': '2018-10-08 11:01:12', 'seq': 67, 'data': 0.0, 'notes': 'Actual speed of the tool given in Cartesian coordinates - ry'}
+{'stationid_id': 4, 'meaning': 'TCP speed actual', 'rectime': '2018-10-08 11:01:12', 'seq': 68, 'data': 0.0, 'notes': 'Actual speed of the tool given in Cartesian coordinates - rz'}
+{'stationid_id': 4, 'meaning': 'TCP force', 'rectime': '2018-10-08 11:01:12', 'seq': 69, 'data': 0.279184, 'notes': 'Generalised forces in the TCP - x'}
+{'stationid_id': 4, 'meaning': 'TCP force', 'rectime': '2018-10-08 11:01:12', 'seq': 70, 'data': -0.743263, 'notes': 'Generalised forces in the TCP - y'}
+{'stationid_id': 4, 'meaning': 'TCP force', 'rectime': '2018-10-08 11:01:12', 'seq': 71, 'data': 4.21449, 'notes': 'Generalised forces in the TCP - z'}
+{'stationid_id': 4, 'meaning': 'TCP force', 'rectime': '2018-10-08 11:01:12', 'seq': 72, 'data': -1.25041, 'notes': 'Generalised forces in the TCP - rx'}
+{'stationid_id': 4, 'meaning': 'TCP force', 'rectime': '2018-10-08 11:01:12', 'seq': 73, 'data': 0.597293, 'notes': 'Generalised forces in the TCP - ry'}
+{'stationid_id': 4, 'meaning': 'TCP force', 'rectime': '2018-10-08 11:01:12', 'seq': 74, 'data': -0.221992, 'notes': 'Generalised forces in the TCP - rz'}
+{'stationid_id': 4, 'meaning': 'Tool vector target', 'rectime': '2018-10-08 11:01:12', 'seq': 75, 'data': 0.557553, 'notes': 'Target Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - x'}
+{'stationid_id': 4, 'meaning': 'Tool vector target', 'rectime': '2018-10-08 11:01:12', 'seq': 76, 'data': -0.201386, 'notes': 'Target Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - y'}
+{'stationid_id': 4, 'meaning': 'Tool vector target', 'rectime': '2018-10-08 11:01:12', 'seq': 77, 'data': 0.400016, 'notes': 'Target Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - z'}
+{'stationid_id': 4, 'meaning': 'Tool vector target', 'rectime': '2018-10-08 11:01:12', 'seq': 78, 'data': 0.0522227, 'notes': 'Target Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - rx'}
+{'stationid_id': 4, 'meaning': 'Tool vector target', 'rectime': '2018-10-08 11:01:12', 'seq': 79, 'data': 1.60932, 'notes': 'Target Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - ry'}
+{'stationid_id': 4, 'meaning': 'Tool vector target', 'rectime': '2018-10-08 11:01:12', 'seq': 80, 'data': -0.463355, 'notes': 'Target Cartesian coordinates of the tool: (x,y,z,rx,ry,rz), where rx, ry and rz is a rotation vector representation of the tool orientation - rz'}
+{'stationid_id': 4, 'meaning': 'TCP speed target', 'rectime': '2018-10-08 11:01:12', 'seq': 81, 'data': 0.0, 'notes': 'Target speed of the tool given in Cartesian coordinates - x'}
+{'stationid_id': 4, 'meaning': 'TCP speed target', 'rectime': '2018-10-08 11:01:12', 'seq': 82, 'data': 0.0, 'notes': 'Target speed of the tool given in Cartesian coordinates - y'}
+{'stationid_id': 4, 'meaning': 'TCP speed target', 'rectime': '2018-10-08 11:01:12', 'seq': 83, 'data': 0.0, 'notes': 'Target speed of the tool given in Cartesian coordinates - z'}
+{'stationid_id': 4, 'meaning': 'TCP speed target', 'rectime': '2018-10-08 11:01:12', 'seq': 84, 'data': 0.0, 'notes': 'Target speed of the tool given in Cartesian coordinates -rx'}
+{'stationid_id': 4, 'meaning': 'TCP speed target', 'rectime': '2018-10-08 11:01:12', 'seq': 85, 'data': 0.0, 'notes': 'Target speed of the tool given in Cartesian coordinates -ry'}
+{'stationid_id': 4, 'meaning': 'TCP speed target', 'rectime': '2018-10-08 11:01:12', 'seq': 86, 'data': 0.0, 'notes': 'Target speed of the tool given in Cartesian coordinates -rz'}
+{'stationid_id': 4, 'meaning': 'Digital input bits', 'rectime': '2018-10-08 11:01:12', 'seq': 87, 'data': 13056.0, 'notes': 'Current state of the digital inputs. NOTE: these are bits encoded as int64_t, e.g. a value of 5 corresponds to bit 0 and bit 2 set high'}
+{'stationid_id': 4, 'meaning': 'Motor temperatures', 'rectime': '2018-10-08 11:01:12', 'seq': 88, 'data': 30.97, 'notes': 'Temperature of each joint in degrees celsius - Base joint'}
+{'stationid_id': 4, 'meaning': 'Motor temperatures', 'rectime': '2018-10-08 11:01:12', 'seq': 89, 'data': 35.45, 'notes': 'Temperature of each joint in degrees celsius - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'Motor temperatures', 'rectime': '2018-10-08 11:01:12', 'seq': 90, 'data': 34.68, 'notes': 'Temperature of each joint in degrees celsius - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'Motor temperatures', 'rectime': '2018-10-08 11:01:12', 'seq': 91, 'data': 39.4, 'notes': 'Temperature of each joint in degrees celsius - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'Motor temperatures', 'rectime': '2018-10-08 11:01:12', 'seq': 92, 'data': 40.54, 'notes': 'Temperature of each joint in degrees celsius - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'Motor temperatures', 'rectime': '2018-10-08 11:01:12', 'seq': 93, 'data': 39.15, 'notes': 'Temperature of each joint in degrees celsius - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'Controller Timer', 'rectime': '2018-10-08 11:01:12', 'seq': 94, 'data': 0.759045, 'notes': 'Controller realtime thread execution time'}
+{'stationid_id': 4, 'meaning': 'Test value', 'rectime': '2018-10-08 11:01:12', 'seq': 95, 'data': 8.0, 'notes': 'A value used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'Robot Mode', 'rectime': '2018-10-08 11:01:12', 'seq': 96, 'data': 7.0, 'notes': 'Robot mode '}
+{'stationid_id': 4, 'meaning': 'Joint Modes', 'rectime': '2018-10-08 11:01:12', 'seq': 97, 'data': 253.0, 'notes': 'Joint control modes - Base joint'}
+{'stationid_id': 4, 'meaning': 'Joint Modes', 'rectime': '2018-10-08 11:01:12', 'seq': 98, 'data': 253.0, 'notes': 'Joint control modes - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'Joint Modes', 'rectime': '2018-10-08 11:01:12', 'seq': 99, 'data': 253.0, 'notes': 'Joint control modes - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'Joint Modes', 'rectime': '2018-10-08 11:01:12', 'seq': 100, 'data': 253.0, 'notes': 'Joint control modes - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'Joint Modes', 'rectime': '2018-10-08 11:01:12', 'seq': 101, 'data': 253.0, 'notes': 'Joint control modes - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'Joint Modes', 'rectime': '2018-10-08 11:01:12', 'seq': 102, 'data': 253.0, 'notes': 'Joint control modes - Wrist3 joint'}
+{'stationid_id': 4, 'meaning': 'Safety Mode', 'rectime': '2018-10-08 11:01:12', 'seq': 103, 'data': 1.0, 'notes': 'Safety mode '}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 104, 'data': 5.53455, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 105, 'data': 5.53455, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 106, 'data': 5.53455, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 107, 'data': 4.28544, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 108, 'data': 4.28544, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 109, 'data': 1.06386, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'Tool Accelerometer values', 'rectime': '2018-10-08 11:01:12', 'seq': 110, 'data': -9.96748, 'notes': 'Tool x,y and z accelerometer values (software version 1.7) - x'}
+{'stationid_id': 4, 'meaning': 'Tool Accelerometer values', 'rectime': '2018-10-08 11:01:12', 'seq': 111, 'data': -1.92996, 'notes': 'Tool x,y and z accelerometer values (software version 1.7) - y'}
+{'stationid_id': 4, 'meaning': 'Tool Accelerometer values', 'rectime': '2018-10-08 11:01:12', 'seq': 112, 'data': -0.737222, 'notes': 'Tool x,y and z accelerometer values (software version 1.7) - z'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 113, 'data': 0.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 114, 'data': 0.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 115, 'data': 0.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 116, 'data': 0.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 117, 'data': 0.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 118, 'data': 0.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'Speed scaling', 'rectime': '2018-10-08 11:01:12', 'seq': 119, 'data': 1.0, 'notes': 'Speed scaling of the trajectory limiter'}
+{'stationid_id': 4, 'meaning': 'Linear momentum norm', 'rectime': '2018-10-08 11:01:12', 'seq': 120, 'data': 0.0, 'notes': 'Norm of Cartesian linear momentum'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 121, 'data': 11.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'NA', 'rectime': '2018-10-08 11:01:12', 'seq': 122, 'data': 130.0, 'notes': 'Used by Universal Robots software only'}
+{'stationid_id': 4, 'meaning': 'V main', 'rectime': '2018-10-08 11:01:12', 'seq': 123, 'data': 48.0087, 'notes': 'Masterboard: Main voltage'}
+{'stationid_id': 4, 'meaning': 'V robot', 'rectime': '2018-10-08 11:01:12', 'seq': 124, 'data': 48.0087, 'notes': 'Masterboard: Robot voltage (48V)'}
+{'stationid_id': 4, 'meaning': 'I robot', 'rectime': '2018-10-08 11:01:12', 'seq': 125, 'data': 1.07422, 'notes': 'Masterboard: Robot current'}
+{'stationid_id': 4, 'meaning': 'V actual', 'rectime': '2018-10-08 11:01:12', 'seq': 126, 'data': 47.666, 'notes': 'Actual joint voltages - Base joint'}
+{'stationid_id': 4, 'meaning': 'V actual', 'rectime': '2018-10-08 11:01:12', 'seq': 127, 'data': 47.773, 'notes': 'Actual joint voltages - Shoulder joint'}
+{'stationid_id': 4, 'meaning': 'V actual', 'rectime': '2018-10-08 11:01:12', 'seq': 128, 'data': 47.788, 'notes': 'Actual joint voltages - Elbow joint'}
+{'stationid_id': 4, 'meaning': 'V actual', 'rectime': '2018-10-08 11:01:12', 'seq': 129, 'data': 47.545, 'notes': 'Actual joint voltages - Wrist1 joint'}
+{'stationid_id': 4, 'meaning': 'V actual', 'rectime': '2018-10-08 11:01:12', 'seq': 130, 'data': 47.742, 'notes': 'Actual joint voltages - Wrist2 joint'}
+{'stationid_id': 4, 'meaning': 'V actual', 'rectime': '2018-10-08 11:01:12', 'seq': 131, 'data': 47.666, 'notes': 'Actual joint voltages - Wrist3 joint'}

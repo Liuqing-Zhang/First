@@ -39,8 +39,6 @@ if __name__ == "__main__":
     )
     #Corepro MQTT broker
     yunmqttClient=mqtt_client_connect(broker=device.mqtthost,port=device.mqttport,username=device.username,password=device.password,client_id=device.username)
-
-
     # Corepro MQTT device Topic
     yunmqttClient.mqttc.subscribe(topic="/"+device.ProductKey+"/"+device.DeviceName+"/property/post/reply",qos=1)
     # local MQTT broker
