@@ -1,0 +1,5 @@
+('d:\\python34\\lib\\site-packages\\six-1.11.0-py3.4.egg',
+ None,
+ {'*.pyo', '*.pyc', '*.py', 'EGG-INFO', '*.pyd', '*.so'},
+ 'DATA',
+ [])

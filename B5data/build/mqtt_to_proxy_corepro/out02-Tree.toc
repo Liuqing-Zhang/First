@@ -1,0 +1,5 @@
+('d:\\python34\\lib\\site-packages\\urllib3-1.21.1-py3.4.egg',
+ None,
+ {'*.pyc', '*.py', '*.so', '*.pyo', '*.pyd', 'EGG-INFO'},
+ 'DATA',
+ [])

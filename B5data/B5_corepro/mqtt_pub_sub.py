@@ -16,6 +16,7 @@ class mqtt_client_connect():
         self.password=password
         self.payload=None
         self.client_id=client_id
+        self.flag=0
         while True:
             try:
                 # self.mqttc=Client(clean_session=False,client_id="12345")
@@ -25,7 +26,7 @@ class mqtt_client_connect():
                 self.mqttc.on_publish=self.on_publish
                 self.mqttc.on_subscribe=self.on_subscribe
                 self.mqttc.username_pw_set(self.username,self.password)
-                self.mqttc.connect(self.broker)
+                self.mqttc.connect(self.broker,port=self.port)
                 self.mqttc.loop_start()
                 break
             except:
@@ -35,24 +36,27 @@ class mqtt_client_connect():
     def on_connect(self,client, userdata, flags, rc):
         #rc为0 返回连接成功
         if rc==0:
-            print("OnConnetc, rc: " + str(rc), 'successful')
+            self.flag = 1
+            print("OnConnetc, rc: " + str(rc), 'successful '+str(client._username))
         else:
-            print("OnConnetc, rc: " + str(rc), 'unsuccessful')
+            self.flag = 0
+            print("OnConnetc, rc: " + str(rc), 'unsuccessful '+str(client._username))
 
     def on_disconnect(self,client, userdata, rc):
         if rc != 0:
+            self.flag = 0
             print("Unexpected MQTT disconnection. Will auto-reconnect")
 
     def on_publish(self,client, userdata, mid):
         print("OnPublish, mid: " + str(mid))
 
     def on_subscribe(self,client, userdata, mid, granted_qos):
-        print("Subscribed: " + str(mid) + " " + str(granted_qos)+"  订阅成功")
+        print("Subscribed: " + str(mid) + " " + str(granted_qos)+"  successful  "+str(client._username))
         self.mqttc.on_message = self.on_message
 
     def on_message(self,client, userdata, msg):
         strcurtime = time.strftime("%Y-%m-%d %H:%M:%S")
-        print(strcurtime + ": " + msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
+        print(strcurtime + ": " + msg.topic + " " + str(msg.qos) + " " + str(msg.payload)+" "+str(client._username))
 
 
 

@@ -10,6 +10,7 @@ import json
 import requests
 
 
+
 class auth_corepro(object):
 
     def __init__(self,ProductKey='6453387282597968558',DeviceName='B5device',DeviceSecret='b442f2b99ecfd290ebf28f42b31266187fd23aedd24393f509fd412097100f4e318f047d53d61af2e461c5e41ad6cee89e65b1063d7eead2bb9914637cbed414',auth_url='https://service-o8bikfta-1256676747.ap-guangzhou.apigateway.myqcloud.com/release/corepro_deviceauth/mqtt_auth?X-MicroService-Name=beacon-corepro-deviceauth&X-NameSpace-Code=default-code'):
@@ -39,7 +40,7 @@ class auth_corepro(object):
         DeviceSecret = bytearray.fromhex(self.DeviceSecret)
         self.timestamp = str(round((time.time() * 1000)))
         # print(self.timestamp)
-        sign_content = ''.join(('deviceName', self.DeviceName, 'productKey', self.ProductKey, 'timestamp', self.timestamp))
+        sign_content = ''.join(('clientId',self.ProductKey,self.DeviceName,'deviceName', self.DeviceName, 'productKey', self.ProductKey, 'timestamp', self.timestamp))
         sign_content = bytes(sign_content, encoding='utf-8')
         sign_method = hashlib.sha256
         self.sign = hmac.new(DeviceSecret, sign_content, sign_method).hexdigest()
@@ -53,15 +54,16 @@ class auth_corepro(object):
                           "deviceName":self.DeviceName,
                           "sign":self.sign,
                           "timestamp":self.timestamp,
-                          "signmethod":"HmacSHA256"
+                          "signmethod":"HmacSHA256",
+                          "clientId":self.ProductKey+self.DeviceName
                         }
-
                 r=requests.post(self.auth_url,data=params,timeout=60)
                 data=r.text
+                print(data)
                 data=json.loads(data)
                 # print(type(data))
                 if not data["errmsg"]=="":
-                    print(self.DeviceName," 鉴权失败！................     error1: device is forbidden")
+                    # print(self.DeviceName," unsuccessful！................     error1: device is forbidden")
                     time.sleep(3)
 
                 elif data["errmsg"]=="":
@@ -73,7 +75,7 @@ class auth_corepro(object):
                     print("username:",self.username+"  password:",self.password)
 
                     # print(data)
-                    print(self.DeviceName," 鉴权成功！................")
+                    # print(self.DeviceName," successful！................")
                     break
             except:
                 print("requests.post error： Http Connect failed or Timeout please check you network")

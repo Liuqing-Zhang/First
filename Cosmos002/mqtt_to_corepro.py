@@ -25,15 +25,15 @@ if __name__ == "__main__":
         DeviceSecret='6d893b235fa853e74802b86105d00e4bbd80dcf9cfb00dcf24a63f7c491bd1c3d0b9c33ca076ab77b1f24bbdec0d97bdbf57afb7df7cefcdfdfa1cd0b65aa984'
     )
     # device1 = auth_corepro(
-    #     ProductKey='6453668283668082833',
-    #     DeviceName='P10XXK370',
-    #     DeviceSecret='ff99aaa845774651edeebcad72a7b6810b8fa0f237bece49001476ab20f09fe4f0b648747b924999a3f5c3ba2ee31880463cff2f376c7df55fff31b917a85acc'
-    # )
-    # device2 = auth_corepro(
-    #     ProductKey='6453668283668082833',
-    #     DeviceName='P115XK828',
-    #     DeviceSecret='188c8a493e14354ed0ae164db678ff55446f97a13abfd3430f2e6f98f8d3b6dfe7b48efae725977c15af5f1207efd7b462ab4d8a3e556e15c856cc940b0c2a6e'
-    # )
+    #     #     ProductKey='6453668283668082833',
+    #     #     DeviceName='P10XXK370',
+    #     #     DeviceSecret='ff99aaa845774651edeebcad72a7b6810b8fa0f237bece49001476ab20f09fe4f0b648747b924999a3f5c3ba2ee31880463cff2f376c7df55fff31b917a85acc'
+    #     # )
+    #     # device2 = auth_corepro(
+    #     #     ProductKey='6453668283668082833',
+    #     #     DeviceName='P115XK828',
+    #     #     DeviceSecret='188c8a493e14354ed0ae164db678ff55446f97a13abfd3430f2e6f98f8d3b6dfe7b48efae725977c15af5f1207efd7b462ab4d8a3e556e15c856cc940b0c2a6e'
+    #     # )
     #Corepro MQTT broker
     yunmqttClient1=mqtt_client_connect(broker=device1.mqtthost,port=device1.mqttport,username=device1.username,password=device1.password,client_id=device1.username)
     # Corepro MQTT device Topic
@@ -45,18 +45,28 @@ if __name__ == "__main__":
 
 
     while True:
+
         with open("CPUstationlog.txt", "r+") as target:
             lines = target.readlines()
             for line in lines:
+
+                timestamp = str(round(time.time() * 1000))
+                load = {}
+                load["id"] = timestamp
+                load["msg_ver"] = "null"
                 strcurtime = time.strftime("%Y-%m-%d %H:%M:%S")
                 line=line.replace("\n","").replace("_","").replace("seq","seqNum").replace("'","\"")
                 line=json.loads(line)
                 line["rectime"]=strcurtime
-                payload = json.dumps(line)
+                load["params"] = line
+                payload = json.dumps(load)
                 # print(payload)
                 yunmqttClient1.mqttc.publish(topic="/" + device1.ProductKey + "/" + device1.DeviceName + "/property/post",payload=payload, qos=1)
+                line["stationidid"] = 1
+                payload = json.dumps(line)
                 yunmqttClient2.mqttc.publish(topic="/" + device2.ProductKey + "/" + device2.DeviceName + "/property/post",payload=payload, qos=1)
                 time.sleep(3)
+                #
 
 
 

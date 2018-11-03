@@ -3,8 +3,6 @@
 # @Time    : 2018/10/15 19:09
 # @Author  : userzhang
 import serial
-
-
 class ser(object):
     def __init__(self,):
         # 計算CRC
@@ -25,6 +23,9 @@ class ser(object):
         self.I0 =0
         self.P0 =0
         self.Q0 = 0
+
+        self.PV=0
+        self.SV=0
 
     def calculate_CRC(self,dataarray):
         """
@@ -134,9 +135,10 @@ class ser(object):
         print("TX: {0} {1} {2}".format(input_data, hex(crc_HIGH), hex(crc_LOW)))
         print("RX: {0}".format(str))
 
-    def run(self):
+    def run(self,data="0x02 0x04 0x03 0xE8 0x00 0x02"):
         self.ser.open()
-        data = "0x02 0x04 0x00 0x00 0x00 0x04"
+        # self.ser.open()
+        # data = "0x02 0x04 0x03 0xE8 0x00 0x02"
         datalist = data.split()
         self.to_int(datalist)  # 調用數據轉換函數
         # 返回計算出crc嗎
@@ -148,33 +150,29 @@ class ser(object):
         datalist.append(crc_LOW)
         self.ser.write(datalist)
         rdata = self.convert_hex(self.ser.readall())
+        # print(rdata)
         rdata = self.to_int(rdata)
         self.ser.close()
         rd = rdata[3:-2]
-        self.U0 = round((rd[0] * 256 + rd[1]) / 10000 * 260,2)  # V
-        self.I0 = round((rd[2] * 256 + rd[3]) / 10000 * 50,2)  # A
-        P = (rd[4] * 256 + rd[5])   # W
-        if P>=32768:
-            self.P0=65536-P
-            self.P0=round((-1)*self.P0/ 10000 * 260 * 50,2)
-        else:
-            self.P0=round(P,2)
+        # print(rd)
+        self.PV = round((rd[0] * 256 + rd[1]) / 10,2)  # V
+        self.SV = round((rd[2] * 256 + rd[3]) / 10,2)  # A
+        print('PV='+str(self.PV)+" SV="+str(self.SV))
+        # P = (rd[4] * 256 + rd[5])   # W
+        # if P>=32768:
+        #     self.P0=65536-P
+        #     self.P0=round((-1)*self.P0/ 10000 * 260 * 50,2)
+        # else:
+        #     self.P0=round(P,2)
+        #
+        # Q = (rd[6] * 256 + rd[7])  # Var
+        #
+        # if Q>=32768:
+        #     self.Q0=65536-Q
+        #     self.Q0=round((-1)*self.Q0/ 10000 * 260 * 50 ,2)
+        # else:
+        #     self.Q0=round(P,2)
 
-        Q = (rd[6] * 256 + rd[7])  # Var
-
-        if Q>=32768:
-            self.Q0=65536-Q
-            self.Q0=round((-1)*self.Q0/ 10000 * 260 * 50 ,2)
-        else:
-            self.Q0=round(P,2)
-
-
-
-# #
-# ##實例
-# s=ser()
-# s.run()
-# print(s.U0, "V ", s.I0, "A ", s.P0, "W ", s.Q0, "Var")
-
-a=
-
+#
+# ser=ser()
+# ser.run()

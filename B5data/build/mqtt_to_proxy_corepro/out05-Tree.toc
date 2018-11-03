@@ -1,0 +1,5 @@
+('C:\\Users\\liu\\Desktop\\IOT\\GITHUB\\First1\\B5data\\build\\mqtt_to_proxy_corepro\\chardet-3.0.3-py3.4.egg',
+ None,
+ {'EGG-INFO', '*.so', '*.pyo', '*.pyc', '*.pyd', '*.py'},
+ 'DATA',
+ [])

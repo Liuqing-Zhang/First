@@ -17,6 +17,7 @@ class mqtt_client_connect():
         self.payload=None
         self.client_id=client_id
         self.num=1
+        self.flag=0
         while True:
             try:
                 # self.mqttc=Client(clean_session=False,client_id="12345")
@@ -35,12 +36,15 @@ class mqtt_client_connect():
     def on_connect(self,client, userdata, flags, rc):
         #rc为0 返回连接成功
         if rc==0:
+            self.flag=1
             print("OnConnetc, rc: " + str(rc), 'successful  '+str(client._username))
         else:
+            self.flag=0
             print("OnConnetc, rc: " + str(rc), 'unsuccessful  '+str(client._username))
 
     def on_disconnect(self,client, userdata, rc):
         if rc != 0:
+            self.flag=0
             print("Unexpected MQTT disconnection. Will auto-reconnect")
 
     def on_publish(self,client, userdata, mid):
