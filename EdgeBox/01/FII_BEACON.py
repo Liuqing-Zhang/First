@@ -14,8 +14,10 @@ from GUI.sensor import Ui_Dialog as senser_Dialog
 from GUI.plc import Ui_Dialog as plc_Dialog
 from GUI.robot_arm import Ui_Dialog as robot_arm_Dialog
 from GUI.setting import Ui_Dialog as setting_Dialog
-import sys,json,os,threading
+import sys,json,os,threading,importlib
 from program.Cosmos_corepro.auth_corepro import auth_corepro
+from program.Cosmos_corepro.mqtt_pub_sub import mqtt_client_connect
+
 """
 setting窗口
 """
@@ -51,9 +53,11 @@ class settings():
         self.ui.lineEdit_6.close()
         self.ui.lineEdit_7.close()
         self.ui.auto_btn_2.close()
+        self.ui.auto_btn_4.close()
         self.ui.Dialog.resize(446, 448)
 
         self.ui.auto_btn.show()
+        self.ui.auto_btn_3.show()
         self.ui.save_btn.setToolTip("點擊此按鈕保存")
         self.ui.close_btn.setToolTip("點擊此按鈕關閉，內容暫存")
 
@@ -74,8 +78,9 @@ class settings():
         self.ui.run_btn.clicked.connect(self.run)
         self.ui.stop_btn.clicked.connect(self.stop)
         self.ui.pushButton_4.clicked.connect(self.auth)
-
-        self.form.show()
+        self.ui.auto_btn_4.clicked.connect(self.reset1)
+        self.ui.auto_btn_3.clicked.connect(self.au1)
+        # self.form.show()
         #
     def auth(self):
         self.device=auth_corepro(
@@ -89,21 +94,42 @@ class settings():
         self.ui.lineEdit_15.setText(str(self.device.username))
         self.ui.lineEdit_16.setText(str(self.device.password))
     def thread_01(self):
-        os.system("python3 program/%s %s %s %s %s %s %s"%(self.ui.comboBox_program.currentText(),self.ui.lineEdit_13.text(),self.ui.lineEdit_14.text(),self.ui.lineEdit_15.text(),self.ui.lineEdit_16.text(),self.ui.lineEdit.text(),self.ui.lineEdit_2.text()))
-    def thread_02(self):
-        pass
+        try:
+            self.main_flag=1
+            mod=importlib.import_module("program.%s"%self.ui.comboBox_program.currentText()[:-3])
+            self.ui.run_btn.setDisabled(True)
+            self.ui.pushButton_4.setDisabled(True)
+            self.ui.run_btn.setText("Running..")
+            self.process=mod.run(self.ui.lineEdit_13.text(),self.ui.lineEdit_14.text(),self.ui.lineEdit_15.text(),self.ui.lineEdit_16.text(),self.ui.lineEdit_13.text(),self.ui.lineEdit.text(),self.ui.lineEdit_2.text(),flag=self.main_flag)
+            self.process.main()
+            # print(self.process.flag)
+            print("設備離線")
+            self.ui.run_btn.setDisabled(False)
+            self.ui.pushButton_4.setDisabled(False)
+            self.ui.run_btn.setText("Run")
+            # os.system("python3 program/%s %s %s %s %s %s %s"%(self.ui.comboBox_program.currentText(),self.ui.lineEdit_13.text(),self.ui.lineEdit_14.text(),self.ui.lineEdit_15.text(),self.ui.lineEdit_16.text(),self.ui.lineEdit.text(),self.ui.lineEdit_2.text()))
+
+
+        except Exception as err:
+            self.ui.run_btn.setDisabled(False)
+            self.ui.pushButton_4.setDisabled(False)
+            self.ui.run_btn.setText("Run")
+            print(err)
+
     def run(self):
         # self.ui.comboBox_program.setDisabled(True)
-        self.ui.run_btn.setDisabled(True)
-        self.ui.run_btn.setText("Running..")
+
         self.my_thread = threading.Thread(target=self.thread_01)
-        self.my_thread.setDaemon(True)
+        # self.my_thread.setDaemon(True)
         self.my_thread.start()
 
 
     def stop(self):
-        my_thread1 = threading.Thread(target=self.thread_02)
-        my_thread1.start()
+        self.process.flag=0
+    def reset1(self):
+        self.ui.Dialog.resize(822, 448)
+    def au1(self):
+        self.ui.Dialog.resize(822, 559)
     def reset(self):
         self.ui.Dialog.resize(446, 448)
     def au(self):
@@ -263,6 +289,7 @@ class fun2():
     def __init__(self):
         self.data={}
         self.btns=[]
+        self.source={}
         self.flag=[]
         cnc_ui.tableWidget.verticalHeader().setVisible(False) #隐藏行头
         cnc_ui.tableWidget.horizontalHeader().setVisible(False)
@@ -279,6 +306,7 @@ class fun2():
                 if flag1==0:
                     btn.setStyleSheet("QPushButton{\n""    border-image:url(image/cnc1.png);\n""}")
                 self.data[btn]=forms[row*6+column]
+                self.source[btn] = settings(self.data[btn], btn) #修改
                 btn.clicked.connect(self.showDialog)
                 cnc_ui.tableWidget.setCellWidget(row,column,btn)
                 btn.setToolTip("device for empty")
@@ -307,6 +335,7 @@ class fun2():
                 forms[index].child.lineEdit.setText(str["Produckey"])
                 forms[index].child.lineEdit_2.setText(str["Devicename"])
                 forms[index].child.lineEdit_3.setText(str["Devicesecret"])
+                forms[index].setWindowTitle(str["Devicename"]+">>Data Source")
                 # self.devlist.append(str["Devicename"])
                 self.devlist.append(str["Devicename"])
                 self.btns[index].setStyleSheet("QPushButton{\n""border-image:url(image/cnc.png);\n""}")
@@ -318,10 +347,8 @@ class fun2():
 
     def showDialog(self):
         self.bu=child2.sender()
-        # print(str(bu))
-        # bu.setToolTip("device %s"%str(bu)[-10:])
-        # self.data[bu].setWindowTitle(str(bu)[-10:]+"Data source")
-        source=settings(self.data[self.bu],self.bu)
+
+        self.source[self.bu].form.show()
 
 
 """

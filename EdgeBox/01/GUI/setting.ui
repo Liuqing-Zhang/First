@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>815</width>
-    <height>422</height>
+    <height>447</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1358,7 +1358,7 @@
   <widget class="QPushButton" name="stop_btn">
    <property name="geometry">
     <rect>
-     <x>650</x>
+     <x>640</x>
      <y>400</y>
      <width>101</width>
      <height>21</height>
@@ -1385,9 +1385,9 @@
   <widget class="QPushButton" name="auto_btn_3">
    <property name="geometry">
     <rect>
-     <x>780</x>
-     <y>400</y>
-     <width>21</width>
+     <x>770</x>
+     <y>420</y>
+     <width>31</width>
      <height>21</height>
     </rect>
    </property>
@@ -1418,9 +1418,9 @@
    </property>
    <property name="geometry">
     <rect>
-     <x>760</x>
-     <y>400</y>
-     <width>21</width>
+     <x>740</x>
+     <y>420</y>
+     <width>31</width>
      <height>21</height>
     </rect>
    </property>
@@ -1432,7 +1432,7 @@
     </font>
    </property>
    <property name="toolTip">
-    <string>show</string>
+    <string>hide</string>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton{
@@ -1449,7 +1449,7 @@
    <property name="geometry">
     <rect>
      <x>40</x>
-     <y>430</y>
+     <y>450</y>
      <width>761</width>
      <height>101</height>
     </rect>

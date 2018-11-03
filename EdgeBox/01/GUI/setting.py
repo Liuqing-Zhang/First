@@ -549,7 +549,7 @@ class Ui_Dialog(object):
 "}")
         self.run_btn.setObjectName("run_btn")
         self.stop_btn = QtWidgets.QPushButton(Dialog)
-        self.stop_btn.setGeometry(QtCore.QRect(650, 400, 101, 21))
+        self.stop_btn.setGeometry(QtCore.QRect(640, 400, 101, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -561,6 +561,36 @@ class Ui_Dialog(object):
 "    color:rgb(85, 170, 255);\n"
 "}")
         self.stop_btn.setObjectName("stop_btn")
+        self.auto_btn_3 = QtWidgets.QPushButton(Dialog)
+        self.auto_btn_3.setGeometry(QtCore.QRect(770, 420, 31, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.auto_btn_3.setFont(font)
+        self.auto_btn_3.setStyleSheet("QPushButton{\n"
+"\n"
+"    background:rgba(255, 255, 255,100);\n"
+"    color:rgb(85, 170, 255);\n"
+"}")
+        self.auto_btn_3.setObjectName("auto_btn_3")
+        self.auto_btn_4 = QtWidgets.QPushButton(Dialog)
+        self.auto_btn_4.setEnabled(True)
+        self.auto_btn_4.setGeometry(QtCore.QRect(740, 420, 31, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.auto_btn_4.setFont(font)
+        self.auto_btn_4.setStyleSheet("QPushButton{\n"
+"\n"
+"    background:rgba(255, 255, 255,100);\n"
+"    color:rgb(85, 170, 255);\n"
+"}")
+        self.auto_btn_4.setObjectName("auto_btn_4")
+        self.textEdit = QtWidgets.QTextEdit(Dialog)
+        self.textEdit.setGeometry(QtCore.QRect(40, 450, 761, 101))
+        self.textEdit.setObjectName("textEdit")
 
         self.retranslateUi(Dialog)
         self.comboBox_com.setCurrentIndex(2)
@@ -574,6 +604,10 @@ class Ui_Dialog(object):
         self.auto_btn.clicked.connect(self.auto_btn_2.show)
         self.auto_btn_2.clicked.connect(self.auto_btn_2.hide)
         self.auto_btn_2.clicked.connect(self.auto_btn.show)
+        self.auto_btn_4.clicked.connect(self.auto_btn_4.hide)
+        self.auto_btn_3.clicked.connect(self.auto_btn_3.hide)
+        self.auto_btn_4.clicked.connect(self.auto_btn_3.show)
+        self.auto_btn_3.clicked.connect(self.auto_btn_4.show)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
         self.Dialog=Dialog
 
@@ -650,4 +684,8 @@ class Ui_Dialog(object):
         self.auto_btn_2.setText(_translate("Dialog", "←"))
         self.run_btn.setText(_translate("Dialog", "Run"))
         self.stop_btn.setText(_translate("Dialog", "Stop"))
+        self.auto_btn_3.setToolTip(_translate("Dialog", "show"))
+        self.auto_btn_3.setText(_translate("Dialog", "↓"))
+        self.auto_btn_4.setToolTip(_translate("Dialog", "hide"))
+        self.auto_btn_4.setText(_translate("Dialog", "↑"))
 
